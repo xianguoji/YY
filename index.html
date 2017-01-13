@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /*版面宽高*/
+        #gexinggonghui, .kuanping, #yule, #gift, #footbox {
+            width: 100%;
+            height: 750px;
+            margin: auto;
+            z-index: 100;
+        }
+
+
+        .trr {
+            position: relative;
+            top: 1200px;
+        }
+
+        /*顶部*/
+        #top {
+            width: 100%;
+            height: 750px;
+            position: fixed;
+            z-index: 0;
+            margin-top: -20px;
+            background: url(img/bg-1-1.png) center no-repeat;
+        }
+        .topbox {
+            margin-top: 50px;
+            width: 580px;
+            height: 700px;
+            position: relative;
+            left: 50%;
+            margin-left: -290px;
+        }
+        /*第一页导航栏*/
+        ul {
+            list-style: none;
+            position: relative;
+            left: 50%;
+        }
+
+        ul > li {
+            float: left;
+        }
+
+        ul > li > a:hover {
+            background: #fff;
+            color: #017dc6;
+        }
+
+        ul > li > a {
+            font-family: microsoft yahei;
+            color: #fff;
+            border-radius: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+        }
+
+        /*第一页按钮*/
+        #top-btn {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            top: 470px;
+            left: 134px;
+        }
+
+        #top-btn > a {
+            display: inline-block;
+            width: 312px;
+            height: 75px;
+            background: #fff;
+            border-radius: 40px;
+        }
+        /*第一页按钮动画up*/
+        @keyframes up {
+            0% {
+                top: 25px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: 8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes up {
+            0% {
+                top: 25px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: 8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-moz-keyframes up {
+            0% {
+                top: 25px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: 8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-ms-keyframes up {
+            0% {
+                top: 25px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: 8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-o-keyframes up {
+            0% {
+                top: 25px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: 8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        /*第一页按钮动画down*/
+        @keyframes down {
+            0% {
+                top: -30px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: -8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes down {
+            0% {
+                top: -30px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: -8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-moz-keyframes down {
+            0% {
+                top: -30px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: -8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-ms-keyframes down {
+            0% {
+                top: -30px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: -8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        @-o-keyframes down {
+            0% {
+                top: -30px;
+                opacity: 0
+            }
+            60% {
+                top: 0px
+            }
+            80% {
+                top: -8px
+            }
+            100% {
+                top: 0px;
+                opacity: 1
+            }
+        }
+
+        /*第一页向下箭头动画*/
+        @keyframes todown {
+            0% {
+                top: 30px
+            }
+            50% {
+                top: 30px
+            }
+            70% {
+                top: 40px
+            }
+            100% {
+                top: 30px
+            }
+        }
+
+        /*第一页按钮容器*/
+        .btnt {
+            width: 140px;
+            margin: auto;
+        }
+
+        /*第一页按钮向下动画*/
+        .down {
+            width: 142px;
+            height: 35px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -665px -417px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            -webkit-animation: down 0.4s linear forwards alternate;
+            -moz-animation: down 0.4s linear forwards alternate;
+            -ms-animation: down 0.4s linear forwards alternate;
+            -o-animation: down 0.4s linear forwards alternate;
+            animation: down 0.4s linear forwards alternate;
+        }
+
+        /*第一页按钮向上动画*/
+        .yydown {
+            width: 135px;
+            height: 51px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -843px -614px;
+            margin-top: 10px;
+            position: relative;
+            /*进行动画up 0.4s内，线性 停留在最后一帧 轮流播放*/
+            -webkit-animation: up 0.4s linear forwards alternate;
+            -moz-animation: up 0.4s linear forwards alternate;
+            -ms-animation: up 0.4s linear forwards alternate;
+            -o-animation: up 0.4s linear forwards alternate;
+            animation: up 0.4s linear forwards alternate;
+
+        }
+
+        /*第一页向下箭头*/
+        .todown {
+            font-family: "microsoft yahei";
+            color: #fff;
+            position: relative;
+            top: 10px;
+            left: 125px;
+        }
+
+        .todownbg {
+            width: 34px;
+            height: 19px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -982px -614px;
+            position: relative;
+            top: 30px;
+            left: 140px;
+            -webkit-animation: todown 1s ease-out infinite;
+            -o-animation: todown 1s ease-out infinite;
+            animation: todown 1s ease-out infinite;
+        }
+
+        /*第一页文字*/
+        .top-kanzhibo {
+            width: 408px;
+            height: 109px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -411px -550px;
+            position: absolute;
+            top: 110px;
+            left: 100px;
+            opacity: 0;
+            -webkit-transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            -moz-transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            -ms-transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            -o-transition: top 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .top-kanzhibomove {
+            top: 80px;
+            opacity: 1;
+        }
+
+        .yy8 {
+            width: 95px;
+            height: 55px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -434px -417px;
+            position: absolute;
+            top: 70px;
+            /*left: 940px;*/
+            opacity: 0;
+            -webkit-transition: left 0.5s ease-out 1.2s, opacity 0.5s ease-out 1.2s;
+            -moz-transition: left 0.5s ease-out 1.2s, opacity 0.5s ease-out 1.2s;
+            -ms-transition: left 0.5s ease-out 1.2s, opacity 0.5s ease-out 1.2s;
+            -o-transition: left 0.5s ease-out 1.2s, opacity 0.5s ease-out 1.2s;
+        }
+
+        .yy8move {
+            left: 540px;
+            opacity: 1;
+        }
+
+        .top-tingjingcai {
+            width: 392px;
+            height: 107px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -434px -264px;
+            position: absolute;
+            top: 230px;
+            left: 100px;
+            opacity: 0;
+            -webkit-transition: top 0.5s ease-out 0.5s, opacity 0.5s ease-out 0.5s;
+            -moz-transition: top 0.5s ease-out 0.5s, opacity 0.5s ease-out 0.5s;
+            -ms-transition: top 0.5s ease-out 0.5s, opacity 0.5s ease-out 0.5s;
+            -o-transition: top 0.5s ease-out 0.5s, opacity 0.5s ease-out 0.5s;
+        }
+
+        .top-tingjingcaimove {
+            top: 200px;
+            opacity: 1;
+        }
+
+        .top-wogexing {
+            width: 407px;
+            height: 116px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: 0 -550px;
+            position: absolute;
+            top: 340px;
+            left: 100px;
+            opacity: 0;
+            -webkit-transition: top 0.5s ease-out 1s, opacity 0.5s ease-out 1s;
+            -moz-transition: top 0.5s ease-out 1s, opacity 0.5s ease-out 1s;
+            -ms-transition: top 0.5s ease-out 1s, opacity 0.5s ease-out 1s;
+            -o-transition: top 0.5s ease-out 1s, opacity 0.5s ease-out 1s;
+        }
+
+        .top-wogexingmove {
+            top: 310px;
+            opacity: 1;
+        }
+
+        .transparents {
+            opacity: 0;
+        }
+
+        /*宽屏*/
+        .kuanping {
+            height: 850px;
+            background: url(img/bg-2.jpg) center no-repeat;
+
+        }
+
+        .kuanpingtop {
+            width: 100%;
+            height: 320px;
+            background-color: #fff;
+            position: relative;
+            top: 0px;
+            -webkit-transition: top 0.5s ease-out;
+            -moz-transition: top 0.5s ease-out;
+            -ms-transition: top 0.5s ease-out;
+            -o-transition: top 0.5s ease-out;
+            transition: top 0.5s ease-out;
+        }
+
+        .kuanpingtopmove {
+            top: -400px;
+        }
+
+        .kuanping-img {
+            width: 897px;
+            height: 500px;
+            background-image: url(img/s2-p.png);
+            position: relative;
+            top: 100px;
+            left: 35%;
+            margin-left: -400px;
+            -webkit-transition: top 0.5s ease-out;
+            -moz-transition: top 0.5s ease-out;
+            -ms-transition: top 0.5s ease-out;
+            -o-transition: top 0.5s ease-out;
+            transition: top 0.5s ease-out;
+        }
+
+        .kuanping-imgmove {
+            top: 550px;
+        }
+
+        .kuanping-text {
+            width: 343px;
+            height: 127px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -434px -137px;
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            margin-left: 150px;
+
+        }
+
+        /*娱乐*/
+        #yule {
+            width: 900px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        /*娱乐界面*/
+        .yydaohang {
+            width: 284px;
+            height: 320px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: 0 -226px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            margin-left: -142px;
+        }
+
+        .yulezhibo {
+            width: 200px;
+            height: 210px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -843px 0;
+            position: absolute;
+            top: 127px;
+            left: 50%;
+            margin-left: -100px;
+            /*transition:left 0.5s ease-out, top 0.5s ease-out ;*/
+            -webkit-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -moz-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -ms-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -o-transition: left 0.5s ease-out, top 0.5s ease-out;
+            transition: left 0.5s ease-out, top 0.5s ease-out;
+        }
+
+        .yulezhibomove {
+            top: 350px;
+            left: 150px;
+        }
+
+        .youxizhibo {
+            width: 200px;
+            height: 190px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -843px -420px;
+            position: absolute;
+            top: 160px;
+            left: 50%;
+            margin-left: -100px;
+            /*transition:top 0.5s ease-out ;*/
+            -webkit-transition: top 0.5s ease-out;
+            -moz-transition: top 0.5s ease-out;
+            -ms-transition: top 0.5s ease-out;
+            -o-transition: top 0.5s ease-out;
+            transition: top 0.5s ease-out;
+        }
+
+        .youxizhibomove {
+            top: 370px;
+        }
+
+        .jiaoyou {
+            width: 200px;
+            height: 203px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -843px -214px;
+            position: absolute;
+            top: 134px;
+            left: 50%;
+            margin-left: -100px;
+            /*transition:left 0.5s ease-out, top 0.5s ease-out ;*/
+            -webkit-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -moz-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -ms-transition: left 0.5s ease-out, top 0.5s ease-out;
+            -o-transition: left 0.5s ease-out, top 0.5s ease-out;
+            transition: left 0.5s ease-out, top 0.5s ease-out;
+        }
+
+        .jiaoyoumove {
+            top: 356px;
+            left: 745px;
+        }
+
+        .quanxinlanmutext {
+            width: 405px;
+            height: 133px;
+            background: url(img/sp-1.png) no-repeat;
+            background-position: -434px 0;
+            position: absolute;
+            top: 530px;
+            left: 50%;
+            margin-left: -202px;
+            opacity: 0;
+            /*transition:top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;*/
+            -webkit-transition: top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;
+            -moz-transition: top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;
+            -ms-transition: top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;
+            -o-transition: top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;
+            transition: top 0.5s ease-out 0.7s, opacity 0.5s ease-out 0.7s;
+        }
+
+        .quanxinlanmutextmove {
+            top: 580px;
+            opacity: 1;
+        }
+
+        /*礼物*/
+        #gift {
+            background: url(img/bg-3.jpg) center no-repeat;
+            margin-bottom: 200px;
+            position: relative;
+        }
+
+        .giftview {
+            width: 868px;
+            height: 623px;
+            background-image: url(img/s4-p.png);
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            margin-left: -434px;
+        }
+
+        .kiss {
+            width: 203px;
+            height: 180px;
+            background: url(img/sp-2.png) no-repeat;
+            background-position: -203px -297px;
+            position: absolute;
+            top: -40px;
+            left: -50px;
+        }
+
+        /*变声text*/
+        .biansheng {
+            width: 414px;
+            height: 130px;
+            background: url(img/sp-2.png) no-repeat;
+            background-position: -331px 0;
+            position: absolute;
+            top: 650px;
+            left: 50%;
+            margin-left: -207px;
+        }
+
+        /*个性公会*/
+        #gexinggonghui {
+            background: url(img/bg-4.png)center no-repeat;
+        }
+
+        #gonghuiBox {
+            width:900px;
+            height:750px;
+            position: relative;
+            left:50%;
+            margin-left: -680px;
+        }
+
+        .big {
+            width: 654px;
+            height: 462px;
+            background-image: url(img/s5-p-1.png);
+            position: absolute;
+            top: 90px;
+            left: 250px;
+            opacity: 0;
+            /*transition:left 1s ease-out ,opacity 1s ease-out;*/
+            -webkit-transition: left 1s ease-out, opacity 1s ease-out;
+            -moz-transition: left 1s ease-out, opacity 1s ease-out;
+            -ms-transition: left 1s ease-out, opacity 1s ease-out;
+            -o-transition: left 1s ease-out, opacity 1s ease-out;
+            transition: left 1s ease-out, opacity 1s ease-out;
+
+        }
+
+        .bigmove {
+            left: 550px;
+            opacity: 1;
+        }
+
+        .mid {
+            width: 313px;
+            height: 449px;
+            background-image: url(img/s5-p-2.png);
+            position: absolute;
+            top: 100px;
+            left: 800px;
+            opacity: 0;
+            /*transition:left 1s ease-out ,opacity 1s ease-out;*/
+            -webkit-transition: left 1s ease-out, opacity 1s ease-out;
+            -moz-transition: left 1s ease-out, opacity 1s ease-out;
+            -ms-transition: left 1s ease-out, opacity 1s ease-out;
+            -o-transition: left 1s ease-out, opacity 1s ease-out;
+            transition: left 1s ease-out, opacity 1s ease-out;
+        }
+
+        .midmove {
+            left: 300px;
+            opacity: 1;
+        }
+
+        .sm {
+            width: 150px;
+            height: 135px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -593px -370px;
+            position: absolute;
+            top: 400px;
+            left: -100px;
+            opacity: 0;
+            /*transition:top 1s ease-out 0.5s ,opacity 1s ease-out 0.5s;*/
+            -webkit-transition: top 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+            -moz-transition: top 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+            -ms-transition: top 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+            -o-transition: top 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+            transition: top 1s ease-out 0.5s, opacity 1s ease-out 0.5s;
+        }
+
+        .smmove {
+            top: 260px;
+            opacity: 1;
+        }
+
+        .gexing {
+            width: 500px;
+            height: 82px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -600px -123px;
+            position: absolute;
+            top: 100px;
+            left: 130px;
+            opacity: 0;
+            /*transition:top 1s ease-out ,opacity 1s ease-out;*/
+            -webkit-transition: top 1s ease-out, opacity 1s ease-out;
+            -moz-transition: top 1s ease-out, opacity 1s ease-out;
+            -ms-transition: top 1s ease-out, opacity 1s ease-out;
+            -o-transition: top 1s ease-out, opacity 1s ease-out;
+            transition: top 1s ease-out, opacity 1s ease-out;
+        }
+
+        .gexingmove {
+            top: 230px;
+            opacity: 1;
+        }
+
+        .zuzhi {
+            width: 334px;
+            height: 44px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: 3px -548px;
+            position: absolute;
+            top: 320px;
+            left: 400px;
+            opacity: 0;
+            /*transition:left 1s ease-out ,opacity 1s ease-out;*/
+            -webkit-transition: left 1s ease-out, opacity 1s ease-out;
+            -moz-transition: left 1s ease-out, opacity 1s ease-out;
+            -ms-transition: left 1s ease-out, opacity 1s ease-out;
+            -o-transition: left 1s ease-out, opacity 1s ease-out;
+            transition: left 1s ease-out, opacity 1s ease-out;
+        }
+
+        .zuzhimove {
+            left: 200px;
+            opacity: 1;
+        }
+
+        .xiaotu {
+            width: 275px;
+            height: 65px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -163px -596px;
+            position: absolute;
+            top: 550px;
+            left: 200px;
+            opacity: 0;
+            /*transition:top 1s ease-out ,opacity 1s ease-out;*/
+            -webkit-transition: top 1s ease-out, opacity 1s ease-out;
+            -moz-transition: top 1s ease-out, opacity 1s ease-out;
+            -ms-transition: top 1s ease-out, opacity 1s ease-out;
+            -o-transition: top 1s ease-out, opacity 1s ease-out;
+            transition: top 1s ease-out, opacity 1s ease-out;
+        }
+
+        .xiaotumove {
+            top: 380px;
+            opacity: 1;
+        }
+
+        /*底部css动画*/
+        /* Safari 和 Chrome */
+        @keyframes huojian {
+            0% {
+                left: 50px;
+                top: -225px;
+            }
+            50% {
+                left: 55px;
+                top: -228px;
+            }
+            100% {
+                left: 50px;
+                top: -230px;
+            }
+        }
+
+        @-webkit-keyframes huojian {
+            0% {
+                left: 50px;
+                top: -225px;
+            }
+            50% {
+                left: 55px;
+                top: -228px;
+            }
+            100% {
+                left: 50px;
+                top: -230px;
+            }
+        }
+
+        @-moz-keyframes huojian {
+            0% {
+                left: 50px;
+                top: -225px;
+            }
+            50% {
+                left: 55px;
+                top: -228px;
+            }
+            100% {
+                left: 50px;
+                top: -230px;
+            }
+        }
+
+        @-ms-keyframes huojian {
+            0% {
+                left: 50px;
+                top: -225px;
+            }
+            50% {
+                left: 55px;
+                top: -228px;
+            }
+            100% {
+                left: 50px;
+                top: -230px;
+            }
+        }
+
+        @-o-keyframes huojian {
+            0% {
+                left: 50px;
+                top: -225px;
+            }
+            50% {
+                left: 55px;
+                top: -228px;
+            }
+            100% {
+                left: 50px;
+                top: -230px;
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes yun1 {
+            0% {
+                top: -330px;
+                left: 10px;
+            }
+            50% {
+                top: -325px;
+                left: 15px;
+            }
+            100% {
+                top: -330px;
+                left: 18px;
+            }
+        }
+
+        @-webkit-keyframes yun1 {
+            0% {
+                top: -330px;
+                left: 10px;
+            }
+            50% {
+                top: -325px;
+                left: 15px;
+            }
+            100% {
+                top: -330px;
+                left: 18px;
+            }
+        }
+
+        @-moz-keyframes yun1 {
+            0% {
+                top: -330px;
+                left: 10px;
+            }
+            50% {
+                top: -325px;
+                left: 15px;
+            }
+            100% {
+                top: -330px;
+                left: 18px;
+            }
+        }
+
+        @-ms-keyframes yun1 {
+            0% {
+                top: -330px;
+                left: 10px;
+            }
+            50% {
+                top: -325px;
+                left: 15px;
+            }
+            100% {
+                top: -330px;
+                left: 18px;
+            }
+        }
+
+        @-o-keyframes yun1 {
+            0% {
+                top: -330px;
+                left: 10px;
+            }
+            50% {
+                top: -325px;
+                left: 15px;
+            }
+            100% {
+                top: -330px;
+                left: 18px;
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes yun2 {
+            0% {
+                top: -320px;
+                left: 165px;
+            }
+            50% {
+                top: -320px;
+                left: 170px;
+            }
+            100% {
+                top: -320px;
+                left: 172px;
+            }
+        }
+
+        @-webkit-keyframes yun2 {
+            0% {
+                top: -320px;
+                left: 165px;
+            }
+            50% {
+                top: -320px;
+                left: 170px;
+            }
+            100% {
+                top: -320px;
+                left: 172px;
+            }
+        }
+
+        @-moz-keyframes yun2 {
+            0% {
+                top: -320px;
+                left: 165px;
+            }
+            50% {
+                top: -320px;
+                left: 170px;
+            }
+            100% {
+                top: -320px;
+                left: 172px;
+            }
+        }
+
+        @-ms-keyframes yun2 {
+            0% {
+                top: -320px;
+                left: 165px;
+            }
+            50% {
+                top: -320px;
+                left: 170px;
+            }
+            100% {
+                top: -320px;
+                left: 172px;
+            }
+        }
+
+        @-o-keyframes yun2 {
+            0% {
+                top: -320px;
+                left: 165px;
+            }
+            50% {
+                top: -320px;
+                left: 170px;
+            }
+            100% {
+                top: -320px;
+                left: 172px;
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes chilun1 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes chilun1 {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes chilun1 {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @-ms-keyframes chilun1 {
+            0% {
+                -ms-transform: rotate(0deg);
+            }
+            100% {
+                -ms-transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes chilun1 {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes chilun2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @-webkit-keyframes chilun2 {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(-360deg);
+            }
+        }
+
+        @-moz-keyframes chilun2 {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            100% {
+                -moz-transform: rotate(-360deg);
+            }
+        }
+
+        @-ms-keyframes chilun2 {
+            0% {
+                -ms-transform: rotate(0deg);
+            }
+            100% {
+                -ms-transform: rotate(-360deg);
+            }
+        }
+
+        @-o-keyframes chilun2 {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                -o-transform: rotate(-360deg);
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes shalou {
+            0% {
+                transform: rotate(0deg);
+            }
+            30% {
+                transform: rotate(0deg);
+            }
+            60% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes shalou {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            30% {
+                -webkit-transform: rotate(0deg);
+            }
+            60% {
+                -webkit-transform: rotate(360deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes shalou {
+            0% {
+                -moz-transform: rotate(0deg);
+            }
+            30% {
+                -moz-transform: rotate(0deg);
+            }
+            60% {
+                -moz-transform: rotate(360deg);
+            }
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @-ms-keyframes shalou {
+            0% {
+                -ms-transform: rotate(0deg);
+            }
+            30% {
+                -ms-transform: rotate(0deg);
+            }
+            60% {
+                -ms-transform: rotate(360deg);
+            }
+            100% {
+                -ms-transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes shalou {
+            0% {
+                -o-transform: rotate(0deg);
+            }
+            30% {
+                -o-transform: rotate(0deg);
+            }
+            60% {
+                -o-transform: rotate(360deg);
+            }
+            100% {
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        /* Safari 和 Chrome */
+        @keyframes jinzhi {
+            0% {
+                transform: scale(1, 1);
+            }
+            75% {
+                transform: scale(1, 1);
+            }
+            100% {
+                transform: scale(1.1, 1.1);
+            }
+        }
+
+        @-webkit-keyframes jinzhi {
+            0% {
+                -webkit-transform: scale(1, 1);
+            }
+            75% {
+                -webkit-transform: scale(1, 1);
+            }
+            100% {
+                -webkit-transform: scale(1.1, 1.1);
+            }
+        }
+
+        @-moz-keyframes jinzhi {
+            0% {
+                -moz-transform: scale(1, 1);
+            }
+            75% {
+                -moz-transform: scale(1, 1);
+            }
+            100% {
+                -moz-transform: scale(1.1, 1.1);
+            }
+        }
+
+        @-ms-keyframes jinzhi {
+            0% {
+                -ms-transform: scale(1, 1);
+            }
+            75% {
+                -ms-transform: scale(1, 1);
+            }
+            100% {
+                -ms-transform: scale(1.1, 1.1);
+            }
+        }
+
+        @-o-keyframes jinzhi {
+            0% {
+                -o-transform: scale(1, 1);
+            }
+            75% {
+                -o-transform: scale(1, 1);
+            }
+            100% {
+                -o-transform: scale(1.1, 1.1);
+            }
+        }
+
+        /*底部图片定位*/
+        /*底部图片*/
+        #line {
+            width: 955px;
+            height: 1169px;
+            background-image: url(img/s6-li.png);
+            margin-top: -30px;
+            position: relative;
+            left:50%;
+            margin-left: -472px;
+        }
+
+        dl {
+            width: 296px;
+            height: 271px;
+            margin-left: 50px;
+        }
+
+        /*底部 “不卡顿”*/
+        #bukadun {
+            background: url(img/sp-3.png) no-repeat;
+            position: absolute;
+            top: 90px;
+            left: -20px;
+        }
+
+        #xingxing {
+            width: 296px;
+            height: 271px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -300px 0;
+        }
+
+        #huojian {
+            width: 154px;
+            height: 154px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -764px -205px;
+            position: relative;
+            top: -223px;
+            left: 50px;
+            -webkit-animation: huojian 0.5s linear infinite alternate;
+            -moz-animation: huojian 0.5s linear infinite alternate;
+            -ms-animation: huojian 0.5s linear infinite alternate;
+            -o-animation: huojian 0.5s linear infinite alternate;
+            animation: huojian 0.5s linear infinite alternate;
+
+        }
+
+        #yun1 {
+            width: 54px;
+            height: 54px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -600px -505px;
+            position: relative;
+            top: -340px;
+            left: 20px;
+            -webkit-animation: yun1 1.5s linear infinite alternate;
+            -moz-animation: yun1 1.5s linear infinite alternate;
+            -ms-animation: yun1 1.5s linear infinite alternate;
+            -o-animation: yun1 1.5s linear infinite alternate;
+            animation: yun1 1.5s linear infinite alternate;
+        }
+
+        #yun2 {
+            width: 54px;
+            height: 54px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -600px -505px;
+            position: relative;
+            top: -320px;
+            left: 165px;
+            -webkit-animation: yun2 1.5s linear infinite alternate;
+            -moz-animation: yun2 1.5s linear infinite alternate;
+            -ms-animation: yun2 1.5s linear infinite alternate;
+            -o-animation: yun2 1.5s linear infinite alternate;
+            animation: yun2 1.5s linear infinite alternate;
+        }
+
+        /*底部“不掉线”*/
+        #budiaoxian {
+            position: relative;
+            top: 330px;
+            left: 670px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: 23px -275px;
+        }
+
+        #chilun1 {
+            width: 120px;
+            height: 125px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -876px -370px;
+            position: relative;
+            top: 77px;
+            left: 105px;
+            -webkit-animation: chilun1 3s linear infinite;
+            -moz-animation: chilun1 3s linear infinite;
+            -ms-anmation: chilun1 3s linear infinite;
+            -o-animation: chilun1 3s linear infinite;
+            animation: chilun1 3s linear infinite;
+        }
+
+        #chilun2 {
+            width: 87px;
+            height: 80px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -80px -596px;
+            position: relative;
+            top: -95px;
+            left: 33px;
+            -webkit-animation: chilun1 3s linear infinite;
+            -moz-animation: chilun1 3s linear infinite;
+            -ms-animation: chilun1 3s linear infinite;
+            -o-animation: chilun1 3s linear infinite;
+            animation: chilun1 3s linear infinite;
+        }
+
+        #chilun3 {
+            width: 120px;
+            height: 125px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -750px -370px;
+            position: relative;
+            top: -135px;
+            left: 2px;
+            -webkit-animation: chilun1 3s linear infinite;
+            -moz-animation: chilun1 3s linear infinite;
+            -ms-animation: chilun1 3s linear infinite;
+            -o-animation: chilun1 3s linear infinite;
+            animation: chilun1 3s linear infinite;
+
+        }
+
+        #chilun4 {
+            width: 80px;
+            height: 80px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: 0 -596px;
+            position: relative;
+            top: -290px;
+            left: 100px;
+            -webkit-animation: chilun2 3s linear infinite;
+            -moz-animation: chilun2 3s linear infinite;
+            -ms-animation: chilun2 3s linear infinite;
+            -o-animation: chilun2 3s linear infinite;
+            animation: chilun2 3s linear infinite;
+        }
+
+        /*底部 “不延迟”*/
+        #buyanchi {
+            position: relative;
+            top: 300px;
+            left: -100px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -270px -275px;
+        }
+
+        #shalou {
+            width: 70px;
+            height: 120px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -922px -207px;
+            position: relative;
+            top: 55px;
+            left: 65px;
+            -webkit-animation: shalou 2s linear infinite;
+            -moz-animation: shalou 2s linear infinite;
+            -ms-animation: shalou 2s linear infinite;
+            -o-animation: shalou 2s linear infinite;
+            animation: shalou 2s linear infinite;
+        }
+
+        #jinzhi {
+            width: 160px;
+            height: 160px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -600px -207px;
+            position: relative;
+            top: -88px;
+            left: 20px;
+            -webkit-animation: jinzhi 1s linear infinite alternate;
+            -moz-animation: jinzhi 1s linear infinite alternate;
+            -ms-animation: jinzhi 1s linear infinite alternate;
+            -o-animation: jinzhi 1s linear infinite alternate;
+            animation: jinzhi 1s linear infinite alternate;
+        }
+
+        /*//下载按钮*/
+        #btn {
+            width: 312px;
+            height: 73px;
+            position: relative;
+            top: 525px;
+            left: 315px;
+
+        }
+
+        #btn > a {
+            text-decoration: none;
+            display: inline-block;
+            width: 312px;
+            height: 73px;
+            border-radius: 40px;
+            text-align: center;
+            background-color: #43A1FF;
+        }
+
+        .foot-btn {
+            width: 145px;
+            margin: auto;
+            padding-top: 8px;
+        }
+
+        .foot-btn-down1 {
+            width: 145px;
+            height: 38px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -334px -550px;
+            margin-top: 10px;
+            position: relative;
+            /*进行动画up 0.4s内，线性 停留在最后一帧 轮流播放*/
+            -webkit-animation: down 0.4s linear forwards alternate;
+            -moz-animation: down 0.4s linear forwards alternate;
+            -ms-animation: down 0.4s linear forwards alternate;
+            -o-animation: down 0.4s linear forwards alternate;
+            animation: down 0.4s linear forwards alternate;
+        }
+
+        .foot-btn-down2 {
+            width: 32px;
+            height: 39px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -550px -392px;
+            margin-top: 12px;
+            position: relative;
+            left: 55px;
+            /*进行动画up 0.4s内，线性 停留在最后一帧 轮流播放*/
+            -webkit-animation: up 0.4s linear forwards alternate;
+            -moz-animation: up 0.4s linear forwards alternate;
+            -ms-animation: up 0.4s linear forwards alternate;
+            -o-animation: up 0.4s linear forwards alternate;
+            animation: up 0.4s linear forwards alternate;
+
+        }
+
+        /*底部按钮顶文字*/
+        .text {
+            width: 408px;
+            height: 130px;
+            background: url(img/sp-3.png) no-repeat;
+            background-position: -600px 0;
+            position: relative;
+            opacity: 0;
+            top: 200px;
+            left: 265px;
+            -webkit-transition: top 1s ease-out, opacity 1s ease-out;
+            -moz-transition: top 1s ease-out, opacity 1s ease-out;
+            -ms-transition: top 1s ease-out, opacity 1s ease-out;
+            -o-transition: top 1s ease-out, opacity 1s ease-out;
+            transition: top 1s ease-out, opacity 1s ease-out;
+        }
+
+        .textmove {
+            top: 270px;
+            opacity: 1;
+        }
+
+
+
+
+
+        /*底部版权信息*/
+        .footer {
+            margin-top: 500px;
+            height: 200px;
+            background: #2a2a2a;
+        }
+
+        .footer-nav {
+            text-align: center;
+            padding-top: 50px;
+            font: 14px tahoma, sans-serif;
+            line-height: 22px;
+            color: #797979;
+        }
+
+        .footer-nav > a, .footer-nav > b {
+            color: #797979;
+            text-decoration: none;
+        }
+
+        .footer-nav > a > span {
+            color: #F40;
+        }
+
+        .footer-nav > a:hover {
+            text-decoration: underline;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="top">
+    <div class="topbox">
+        <ul>
+            <li><a href="#">YY首页</a></li>
+            <li><a href="#">多玩游戏网</a></li>
+            <li><a href="#">虾哥论坛</a></li>
+            <li><a href="#">申请YY</a></li>
+            <li><a href="#">帮助中心</a></li>
+        </ul>
+        <div class="top-kanzhibo"></div>
+        <div class="yy8"></div>
+        <div class="top-tingjingcai"></div>
+        <div class="top-wogexing"></div>
+        <div id="top-btn">
+            <a href="#">
+                <div class="btnt">
+                    <div class="down1 down"></div>
+                    <div class="yydown1"></div>
+                </div>
+            </a>
+
+            <div class="todown">向下滑动</div>
+            <div class="todownbg"></div>
+        </div>
+    </div>
+</div>
+<div class="trr">
+    <div class="kuanping">
+        <div class="kuanpingtop">
+            <div class="kuanping-img">
+                <div class="img-width"></div>
+                <div class="img-height"></div>
+            </div>
+            <div class="kuanping-text"></div>
+        </div>
+    </div>
+
+    <div id="yule">
+        <div class="yulezhibo"></div>
+        <div class="jiaoyou"></div>
+        <div class="youxizhibo"></div>
+        <div class="yydaohang"></div>
+        <div class="quanxinlanmutext "></div>
+    </div>
+
+    <div id="gift">
+        <div class="giftview">
+            <div class="kiss"></div>
+            <div class="biansheng"></div>
+        </div>
+    </div>
+    <!--//个性公会-->
+    <div id="gexinggonghui">
+        <div id="gonghuiBox">
+            <div class="big">
+                <div class="mid">
+                    <div class="sm"></div>
+                </div>
+            </div>
+            <div class="gexing"></div>
+            <div class="zuzhi"></div>
+            <div class="xiaotu"></div>
+        </div>
+    </div>
+    <!--//底部动画-->
+    <div id="footbox">
+        <div id="line">
+            <dl id="bukadun">
+                <dd id="xingxing"></dd>
+                <dd id="huojian"></dd>
+                <dd id="yun1"></dd>
+                <dd id="yun2"></dd>
+            </dl>
+            <dl id="budiaoxian">
+                <dd id="chilun1"></dd>
+                <dd id="chilun2"></dd>
+                <dd id="chilun3"></dd>
+                <dd id="chilun4"></dd>
+            </dl>
+            <dl id="buyanchi">
+                <dd id="shalou"></dd>
+                <dd id="jinzhi"></dd>
+            </dl>
+            <div id="btn">
+                <a href="#">
+
+                    <div class="foot-btn">
+                        <div class="foot-btn-down01 foot-btn-down1"></div>
+                        <div class="foot-btn-down02"></div>
+                    </div>
+
+                </a>
+            </div>
+            <div class="text"></div>
+        </div>
+
+    </div>
+    <!--底部版权信息-->
+    <div class="footer">
+        <div class="footer-nav">
+            <a href="">关于欢聚</a><b>|</b>
+            <a href="">欢聚招聘</a><b>|</b>
+            <a href="">联系欢聚</a><b>|</b>
+            <a href="">客服频道：<span>10</span></a><b>|</b>
+            <a href="">YY客服中心</a><b>|</b>
+            <a href="">隐私权保护政策</a><b>|</b>
+            <a href="">版权保护投诉指引</a><b>|</b>
+            <a href="">100教育</a><b>|</b>
+
+            <p>增值电信业务经营许可证粤B2-20050785B2-20120129|粤ICP备09075143号</p>
+
+            <p>© 2005-2016 广州华多网络科技有限公司 版权所有</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    //    按钮事件
+    $("#top-btn>a,#btn>a").hover(
+            function () {
+                $(".down1").removeClass("down");
+                $(".yydown1").addClass("yydown");
+                $(".foot-btn-down01").removeClass("foot-btn-down1");
+                $(".foot-btn-down02").addClass("foot-btn-down2");
+            },
+            function () {
+                $(".down1").addClass("down");
+                $(".yydown1").removeClass("yydown");
+                $(".foot-btn-down01").addClass("foot-btn-down1");
+                $(".foot-btn-down02").removeClass("foot-btn-down2");
+            }
+    );
+
+    //滚动事件
+    window.onscroll = function () {
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        console.log(scrollTop);
+//宽屏动画
+        if (scrollTop >= 1100) {
+            $(".kuanping-img").addClass("kuanping-imgmove");
+            $(".kuanpingtop").addClass("kuanpingtopmove");
+            $(".kuanping-text").addClass("kuanping-textmove");
+        } else {
+            $(".kuanping-img").removeClass("kuanping-imgmove");
+            $(".kuanpingtop").removeClass("kuanpingtopmove");
+            $(".kuanping-text").removeClass("kuanping-textmove");
+        }
+
+//        底部字体过渡
+        if (scrollTop >= 4700) {
+            $(".text").addClass("textmove")
+        }
+        else {
+            $(".text").removeClass("textmove")
+        }
+//        顶部字体过渡
+        if (scrollTop >= 1000) {
+            $("#top").addClass("transparents");
+            $(".top-kanzhibo").removeClass("top-kanzhibomove");
+            $(".top-tingjingcai").removeClass("top-tingjingcaimove");
+            $(".top-wogexing").removeClass("top-wogexingmove");
+            $(".yy8").removeClass("yy8move");
+        } else {
+            $("#top").removeClass("transparents");
+            $(".top-kanzhibo").addClass("top-kanzhibomove");
+            $(".top-tingjingcai").addClass("top-tingjingcaimove");
+            $(".top-wogexing").addClass("top-wogexingmove");
+            $(".yy8").addClass("yy8move");
+        }
+        // 娱乐动画
+        if (scrollTop >= 1700 && scrollTop <= 2700) {
+            $(".jiaoyou").addClass("jiaoyoumove");
+            $(".youxizhibo").addClass("youxizhibomove");
+            $(".yulezhibo").addClass("yulezhibomove");
+            $(".quanxinlanmutext").addClass("quanxinlanmutextmove");
+        } else {
+            $(".jiaoyou").removeClass("jiaoyoumove");
+            $(".youxizhibo").removeClass("youxizhibomove");
+            $(".yulezhibo").removeClass("yulezhibomove");
+            $(".quanxinlanmutext").removeClass("quanxinlanmutextmove");
+        }
+        //个性公会动画
+        if (scrollTop >= 3300 && scrollTop <= 4200) {
+
+            $(".big").addClass("bigmove");
+            $(".mid").addClass("midmove");
+            $(".sm").addClass("smmove");
+            $(".xiaotu").addClass("xiaotumove");
+            $(".gexing").addClass("gexingmove");
+            $(".zuzhi").addClass("zuzhimove");
+        } else {
+            $(".big").removeClass("bigmove");
+            $(".mid").removeClass("midmove");
+            $(".sm").removeClass("smmove");
+            $(".xiaotu").removeClass("xiaotumove");
+            $(".gexing").removeClass("gexingmove");
+            $(".zuzhi").removeClass("zuzhimove");
+        }
+
+    }
+</script>
+</body>
+</html>
